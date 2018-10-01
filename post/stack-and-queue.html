@@ -57,7 +57,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-              <h1>Code for Tutorior 1</h1>
+              <h1>Code for Tutorior 3</h1>
               <h2 class="subheading">About elementary data strucutre</h2>
               <span class="meta">Posted on August 28, 2018</span>
             </div>
@@ -72,14 +72,184 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <p>
-              These my coding files for third tutorior. Choose exercise you want to take a look.
+              These are the coding files code by c++.
             </p>
             <select id="list" >
-              <option value="../Code/TT3/ex1.cpp">ex1</option>
-              <option value="../Code/TT3/ex2.cpp">ex2</option>
-              <option value="../Code/TT3/ex3.cpp">ex3</option>
+              <option value="c++/ex1.cpp">ex1</option>
+              <option value="c++/ex2.cpp">ex2</option>
+              <option value="c++/ex3.cpp">ex3</option>
             </select>
-            <button type="button" onclick="show(list.value)">Reveal</button>
+            <button type="button" onclick="show( 'TT3/' + list.value)">Reveal</button>
+          </div>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>
+              So the code below is the code using c++ special library like "stack" or queue.
+              If you want to work with it by linked list, les't move to the next path.
+            </p>
+            <select id="list2" >
+              <option value="linked-list/ex1.cpp">ex1</option>
+              <option value="linked-list/ex2.cpp">ex2</option>
+              <option value="linked-list/ex3.cpp">ex3</option>
+            </select>
+            <button type="button" onclick="show( 'TT3/' + list2.value)">Reveal</button>
+            <p>
+              We can absolutely rebuild back and queue by using linked list. So to make it more clear, why don't we build a preset of it to use?
+            </p>
+            <img src="../img/stack-and-queue.png" style="margin-left: -300px">
+            <p>
+              This picture help you to imagine how stack and queue work.<br>
+              These code below will help you to understand basicly stack and queue use linked list.
+            </p>
+            <select id="list3">
+              <option value="stack">Stack</option>
+              <option value="queue">Queue</option>
+            </select>
+            <button type="button" onclick="reveal(list3.value)">Reveal</button>
+            <pre id="stack" style="display: none;">
+              struct node{
+                  /*
+                      Your variable here
+                  */
+                  node *nxt = NULL,*prev = NULL;
+              };
+
+              struct Stack{
+                  node *head,*tail;
+                  int _size=0;
+              }
+
+              Stack s; // creat new stack
+              /*
+                  void x is your variable, one or may be many
+                  _push to add element to linked list
+              */
+              void _push(void x, Stack s){ 
+                  node *tmp = (node*)malloc(sizeof(node));
+                  if(s.head == NULL){
+                      /*
+                          tmp's data equals to input data (x)
+                      */
+                      tmp->nxt = s.tail;
+                      tmp->prev = s.head;
+                      s.head = tmp;
+                      s.tail = tmp;
+                      /*
+                          Creat first element of linked list
+                      */
+                      s._size++; // increase size of the stack
+                      return;
+                  }
+                  tmp->chr = chr;
+                  s.tail->nxt = tmp;
+                  tmp->prev = s.tail;
+                  s.tail = tmp;
+                  /*
+                      Add an element to the end of stack
+                  */
+                  s->_size ++;
+              }
+              /*
+                  _pop() is used to remove the last element of stack
+              */
+
+              void _pop(Stack s){
+                  node *tmp = (node*)malloc(sizeof(node));
+                  if(s.tail == NULL)return;
+                  tmp = s.tail;
+                  s.tail = s.tail->prev;
+                  free(tmp); // free the memoey of last element
+                  s._size--;// decrese size of stack
+              }
+
+              bool isEmpty(Stack s){// check if stack empty or not
+                  return !s._size;
+              }
+              // depend on your datatype
+              // return the top element of stack
+              void _top(Stack s){
+                  return s.tail->chr;
+              }
+
+              int _size(Stack s){
+                  return s._size;
+              }
+            </pre>
+            <pre id="queue" style="display: none">
+              struct node{
+                  /*
+                      Your variable here
+                  */
+                  node *nxt = NULL,*prev = NULL;
+              };
+
+              struct Queue{
+                  node *head,*tail;
+                  int _size=0;
+              }
+
+              Queue q; // creat new stack
+              /*
+                  void x is your variable, one or may be many
+                  _push to add element to linked list
+              */
+              void _push(void x, Queue q){
+                  node *tmp = (node*)malloc(sizeof(node));
+                  if(q.head == NULL){
+                      /*
+                          tmp's data equals to input data (x)
+                      */
+                      tmp->nxt = q.tail;
+                      tmp->prev = q.head;
+                      q.head = tmp;
+                      q.tail = tmp;
+                      /*
+                          Creat first element of linked list
+                      */
+                      q._size++; // increase size of the queue
+                      return;
+                  }
+                  tmp->chr = chr;
+                  q.tail->nxt = tmp;
+                  tmp->prev = q.tail;
+                  q.tail = tmp;
+                  /*
+                      Add an element to the end of queue
+                  */
+                  q->_size ++;
+              }
+              /*
+                  _pop() is used to remove the first element of queue
+              */
+
+              void _pop(Queue q){
+                  node *tmp = (node*)malloc(sizeof(node));
+                  if(q.head == NULL)return;
+                  tmp = q.head;
+                  q.head = q.head->nxt;
+                  free(tmp); // free the memoey of last element
+                  q._size--;// decrese size of stack
+              }
+
+              bool isEmpty(Queue q){// check if stack empty or not
+                  return !q._size;
+              }
+
+              // depend on your datatype
+              // to return the first element of queue
+              void _front(Queue q){
+                  return q.head->x;
+              }
+
+              // depend on your datatype
+              // to return the last element of queue
+              void _back(Queue q){
+                  return q.tail->x;
+              }
+
+              int _size(Queue q){
+                  return q._size;
+              }
+            </pre>
           </div>
         </div>
       </div>

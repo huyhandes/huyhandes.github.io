@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head> 	
+<body>
+	<div>
+		<pre >
+			struct node{
+			    /*
+			        Your variable here
+			    */
+			    node *nxt = NULL,*prev = NULL;
+			};
+
+			struct Stack{
+			    node *head,*tail;
+			    int _size=0;
+			}
+
+			Stack s; // creat new stack
+			/*
+			    void x is your variable, one or may be many
+			    _push to add element to linked list
+			*/
+			void _push(void x, Stack s){ 
+			    node *tmp = (node*)malloc(sizeof(node));
+			    if(s.head == NULL){
+			        /*
+			            tmp's data equals to input data (x)
+			        */
+			        tmp->nxt = s.tail;
+			        tmp->prev = s.head;
+			        s.head = tmp;
+			        s.tail = tmp;
+			        /*
+			            Creat first element of linked list
+			        */
+			        s._size++; // increase size of the stack
+			        return;
+			    }
+			    tmp->chr = chr;
+			    s.tail->nxt = tmp;
+			    tmp->prev = s.tail;
+			    s.tail = tmp;
+			    /*
+			        Add an element to the end of stack
+			    */
+			    s->_size ++;
+			}
+			/*
+			    _pop() is used to remove the last element of stack
+			*/
+
+			void _pop(Stack s){
+			    node *tmp = (node*)malloc(sizeof(node));
+			    if(s.tail == NULL)return;
+			    tmp = s.tail;
+			    s.tail = s.tail->prev;
+			    free(tmp); // free the memoey of last element
+			    s._size--;// decrese size of stack
+			}
+
+			bool isEmpty(Stack s){// check if stack empty or not
+			    return !s._size;
+			}
+
+			void _top(Stack s){ // depend on your datatype
+			    return s.tail->chr;
+			}
+
+			int _size(Stack s){
+			    return s._size;
+			}
+		</pre>
+	</div>
+</body>
+</html>

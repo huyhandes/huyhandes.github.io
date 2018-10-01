@@ -39,8 +39,12 @@ void _pop(){
     free(tmp);
 }
 
+bool isEmpty(){
+    if (head== NULL)return 1;
+    return 0;
+}
+
 string _front(){
-    if(head == NULL)return "No one in the queue\n";
     return head->name;
 }
 
@@ -55,19 +59,21 @@ string name;
 int main(){
     cout<<"Press 1 to add people to queue.\nPress 2 to get 1 people enter.\nPress 3 to end program.\n";
     while(1){
-        cout<<"Enter your choise\n";
+        scanf("\n");
         int choise;
         cin>>choise;
         if(choise == 1){
             cout<<"Enter name of next person\n";
-            cin>>name;
-            //getline(cin,name);
+            scanf("\n");
+            getline(cin,name);
             _push(name);
         }
         if(choise == 2){
-            //prt();
-            cout<<_front()<<" entered the train\n";
-            _pop();
+            if(isEmpty())cout<<"No one in queue\n";
+            else{
+                cout<<_front()<<" entered the train\n";
+                _pop();
+            }
         }
         if(choise == 3)return 0;
     }
