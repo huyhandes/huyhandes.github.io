@@ -146,7 +146,7 @@
                   /*
                       Add an element to the end of stack
                   */
-                  s->_size ++;
+                  s._size ++;
               }
               /*
                   _pop() is used to remove the last element of stack
@@ -167,7 +167,7 @@
               // depend on your datatype
               // return the top element of stack
               void _top(Stack s){
-                  return s.tail->chr;
+                  return s.tail->x;
               }
 
               int _size(Stack s){
@@ -215,7 +215,7 @@
                   /*
                       Add an element to the end of queue
                   */
-                  q->_size ++;
+                  q_size ++;
               }
               /*
                   _pop() is used to remove the first element of queue
