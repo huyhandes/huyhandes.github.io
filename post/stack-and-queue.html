@@ -83,8 +83,8 @@
           </div>
           <div class="col-lg-8 col-md-10 mx-auto">
             <p>
-              So the code below is the code using c++ special library like "stack" or queue.
-              If you want to work with it by linked list, les't move to the next path.
+              So the code above is the code using c++ special library like &ltstack&gt or &ltqueue&gt.
+              If you want to work with it by linked list, take a look the codeing files below.
             </p>
             <select id="list2" >
               <option value="linked-list/ex1.cpp">ex1</option>
@@ -98,13 +98,13 @@
             <img src="../img/stack-and-queue.png" style="margin-left: -300px">
             <p>
               This picture help you to imagine how stack and queue work.<br>
-              These code below will help you to understand basicly stack and queue use linked list.
+              I already wrote the template for stack and queue below
             </p>
             <select id="list3">
               <option value="stack">Stack</option>
               <option value="queue">Queue</option>
             </select>
-            <button type="button" onclick="reveal(list3.value)">Reveal</button>
+            <button id="btn" type="button" onclick="reveal(list3.value)">Reveal</button>
             <pre id="stack" style="display: none;">
               struct node{
                   /*
@@ -215,7 +215,7 @@
                   /*
                       Add an element to the end of queue
                   */
-                  q_size ++;
+                  q._size ++;
               }
               /*
                   _pop() is used to remove the first element of queue
