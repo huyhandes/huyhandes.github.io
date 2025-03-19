@@ -1,0 +1,11 @@
+{
+    "description": "This is where I publish all my articles about DataEngineering",
+    "repo": "https://github.com/huyhandes/huyhandes.github.io",
+    "owner": {
+        "username": "huyhandes",
+        "email": "43632522+huyhandes@users.noreply.github.com"
+    },
+    "record": {
+        "CNAME": "huyhandes.github.io"
+    }
+}
